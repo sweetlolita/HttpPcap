@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4204CE78-3515-40E5-A375-C710627F63DC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Amber.Kit.HttpPcap</RootNamespace>
+    <AssemblyName>HttpPcap</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <DocumentationFile>bin\Debug\HttpPcap.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\ByteHelper.cs" />
+    <Compile Include="Common\Descriptor\Descriptor.cs" />
+    <Compile Include="Common\Descriptor\DescriptorBuffer.cs" />
+    <Compile Include="Common\Descriptor\DescriptorDelegator.cs" />
+    <Compile Include="Common\Descriptor\DescriptorException.cs" />
+    <Compile Include="Common\PacketCaptureBase.cs" />
+    <Compile Include="Common\PacketPollerBase.cs" />
+    <Compile Include="Common\Polling\AsyncObjectBase.cs" />
+    <Compile Include="Common\Polling\EventablePollingThread.cs" />
+    <Compile Include="Common\Polling\ExecutableObjectBase.cs" />
+    <Compile Include="Common\Polling\PollingThread.cs" />
+    <Compile Include="Common\Polling\SingleListServer.cs" />
+    <Compile Include="Entry\HttpPcapConfig.cs" />
+    <Compile Include="Common\PcapException.cs" />
+    <Compile Include="HttpBusiness\HttpTransactionPair.cs" />
+    <Compile Include="HttpBusiness\Parser\HttpRequestParser.cs" />
+    <Compile Include="HttpBusiness\Parser\HttpResponseParser.cs" />
+    <Compile Include="Output\HttpPcapError.cs" />
+    <Compile Include="RawSocket\IocpActionBase.cs" />
+    <Compile Include="RawSocket\IocpReceiveAction.cs" />
+    <Compile Include="RawSocket\RawSocketPacketPoller.cs" />
+    <Compile Include="WinPcap\Headers\EthernetHeader.cs" />
+    <Compile Include="WinPcap\PcapStructWrapper.cs" />
+    <Compile Include="HttpBusiness\HttpBusinessPoller.cs" />
+    <Compile Include="HttpBusiness\Parser\HttpPacketParser.cs" />
+    <Compile Include="Output\HttpRequest.cs" />
+    <Compile Include="Output\HttpResponse.cs" />
+    <Compile Include="Output\HttpTransaction.cs" />
+    <Compile Include="HttpBusiness\HttpTransactionMatcher.cs" />
+    <Compile Include="HttpBusiness\Headers\IPHeader.cs" />
+    <Compile Include="Entry\HttpPcapEntry.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="HttpBusiness\Headers\TCPHeader.cs" />
+    <Compile Include="WinPcap\PcapNetworkInterface.cs" />
+    <Compile Include="WinPcap\PcapApiWrapper.cs" />
+    <Compile Include="WinPcap\PcapNetworkInterfacePool.cs" />
+    <Compile Include="WinPcap\PcapPacketHeader.cs" />
+    <Compile Include="WinPcap\PcapPacketPoller.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
